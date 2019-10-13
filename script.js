@@ -1,67 +1,79 @@
 var timeEl = document.querySelector(".navbar-text");
 var mainContent = document.getElementById("main");
-var answer1 = document.getElementById("button-1");
-var answer2 = document.getElementById("button-2");
-var answer3 = document.getElementById("button-3");
-var answer4 = document.getElementById("button-4");
+
 
 var secondsLeft = 75;
 
 function setTime() {
-  var timerInterval = setInterval(function() {
-    secondsLeft--;
-    timeEl.textContent = "Time left: " + secondsLeft;
+    var timerInterval = setInterval(function () {
+        secondsLeft--;
+        timeEl.textContent = "Time left: " + secondsLeft;
 
-    if(secondsLeft !== 0){
-        runQuestions();
-        
-    }
 
-   if(secondsLeft === 0){
-       clearInterval(timerInterval);
-goToEnd();
-   }
+        if (secondsLeft === 0) {
+            clearInterval(timerInterval);
+            goToEnd();
+        }
 
-  }, 1000);
+
+    }, 1000);
+
+
 }
 
 function goToEnd() {
-mainContent.textContent = "Game Over";
+    mainContent.textContent = "Game Over. Your score is: " + secondsLeft;
 }
 
 
 
 
 function runQuestions() {
-    mainContent.textContent
+    
 
-for (i = 0; i < questions.length; i++){
+    for (i = 0; i < 5; i++) {
 
-mainContent.textContent = questions[i].title;
+        mainContent.textContent = questions[i].title;
 
 
 
-for (j = 0; j < questions[i].choices.length; j++) {
-    var choiceBtn = $("<button>");
-    console.log()
+        for (j = 0; j < 4; j++) {
+            var choiceBtn = $("<button>");
 
-choiceBtn.addClass("letter-button letter");
-choiceBtn.attr("data-letter", questions[i].choices[j]);
-   choiceBtn.text(questions[i].choices[j]);
-   $("#main").append(choiceBtn);
-   console.log(questions[i].choices[j]);
+            choiceBtn.addClass("choice-button answer");
+            choiceBtn.attr("data-choice", questions[i].choices[j]);
+            choiceBtn.attr("correct-answer", questions[i].answer);
+            choiceBtn.text(questions[i].choices[j]);
+            $("#main").append(choiceBtn);
+            
+
+            $(".choice-button").on("click", function () {
+
+                var chosen = ($(this).attr("data-choice"));
+                var answer = ($(this).attr("correct-answer"));
+
+                if (chosen === answer) {
+
+                    $("#main").append("correct");
+                }
+
+                else {
+
+                    $("#main").append("incorrect");
+                }
+                clearInterval(mainContent);
+            });
+        }
+
+        
+
+
+
+    }
+
 }
-
-
-
-
-
-}
-
-}
-
-
 
 
 
 setTime();
+runQuestions();
