@@ -8,6 +8,7 @@ var answer2button = document.querySelector("#answer2");
 var answer3button = document.querySelector("#answer3");
 var answer4button = document.querySelector("#answer4");
 var statusLine = document.querySelector("#status-line");
+var gameOver = document.querySelector("#game-over");
 
 var secondsLeft = 75;
 
@@ -57,63 +58,252 @@ var questions = [
 // }
 
 function goToEnd() {
-    mainContent.textContent = "Game Over. Your score is: " + secondsLeft;
+    gameOver.textContent = "Game Over. Your score is: " + secondsLeft;
 };
 
-
-
-
 function showQuestion() {
-        var questionNumber = i + 1;
-        cardTitle.textContent = "Question " + questionNumber;
-        cardQuestion.textContent = questions[i].title;
-        answer1button.value = questions[i].choices[0];
-        answer2button.value = questions[i].choices[1];
-        answer3button.value = questions[i].choices[2];
-        answer4button.value = questions[i].choices[3];
+    var questionNumber = i + 1;
+    cardTitle.textContent = "Question " + questionNumber;
+    cardQuestion.textContent = questions[i].title;
+    answer1button.value = questions[i].choices[0];
+    answer2button.value = questions[i].choices[1];
+    answer3button.value = questions[i].choices[2];
+    answer4button.value = questions[i].choices[3];
 };
 
 function runQuestion1() {
     i = 0;
     showQuestion();
-    answer1button.addEventListener("click", function() {
-       if (questions[0].choices[0] === questions[0].answer) {
-        statusLine.textContent = "Correct";
-       }
-       else{
-           statusLine.textContent = "Incorrect";
-           secondsLeft - 5;
-       }
-      });
+    answer1button.addEventListener("click", function () {
+        if (questions[0].choices[0] === questions[0].answer) {
+            statusLine.textContent = "Correct";
+        }
+        else {
+            statusLine.textContent = "Incorrect";
+            secondsLeft - 5;
+        }
+        runQuestion2();
+    });
 
-      answer2button.addEventListener("click", function() {
+    answer2button.addEventListener("click", function () {
         if (questions[0].choices[1] === questions[0].answer) {
-         statusLine.textContent = "Correct";
+            statusLine.textContent = "Correct";
         }
-        else{
+        else {
             statusLine.textContent = "Incorrect";
             secondsLeft - 5;
         }
-       });
+        runQuestion2();
+    });
 
-       answer3button.addEventListener("click", function() {
+    answer3button.addEventListener("click", function () {
         if (questions[0].choices[2] === questions[0].answer) {
-         statusLine.textContent = "Correct";
+            statusLine.textContent = "Correct";
         }
-        else{
+        else {
             statusLine.textContent = "Incorrect";
             secondsLeft - 5;
         }
-       });
-       answer4button.addEventListener("click", function() {
+        runQuestion2();
+    });
+    answer4button.addEventListener("click", function () {
         if (questions[0].choices[3] === questions[0].answer) {
-         statusLine.textContent = "Correct";
+            statusLine.textContent = "Correct";
         }
-        else{
+        else {
             statusLine.textContent = "Incorrect";
             secondsLeft - 5;
         }
-       });
+        runQuestion2();
+    });
+};
+
+function runQuestion2() {
+    i = 1;
+    showQuestion();
+    answer1button.addEventListener("click", function () {
+        if (questions[1].choices[0] === questions[1].answer) {
+            statusLine.textContent = "Correct";
+        }
+        else {
+            statusLine.textContent = "Incorrect";
+            secondsLeft - 5;
+        }
+        runQuestion3();
+    });
+
+    answer2button.addEventListener("click", function () {
+        if (questions[1].choices[1] === questions[1].answer) {
+            statusLine.textContent = "Correct";
+        }
+        else {
+            statusLine.textContent = "Incorrect";
+            secondsLeft - 5;
+        }
+        runQuestion3();
+    });
+
+    answer3button.addEventListener("click", function () {
+        if (questions[1].choices[2] === questions[1].answer) {
+            statusLine.textContent = "Correct";
+        }
+        else {
+            statusLine.textContent = "Incorrect";
+            secondsLeft - 5;
+        }
+        runQuestion3();
+    });
+    answer4button.addEventListener("click", function () {
+        if (questions[1].choices[3] === questions[1].answer) {
+            statusLine.textContent = "Correct";
+        }
+        else {
+            statusLine.textContent = "Incorrect";
+            secondsLeft - 5;
+        }
+        runQuestion3();
+    });
+};
+
+function runQuestion3() {
+    i = 2;
+    showQuestion();
+    answer1button.addEventListener("click", function () {
+        if (questions[2].choices[0] === questions[2].answer) {
+            statusLine.textContent = "Correct";
+        }
+        else {
+            statusLine.textContent = "Incorrect";
+            secondsLeft - 5;
+        }
+        runQuestion4();
+    });
+
+    answer2button.addEventListener("click", function () {
+        if (questions[2].choices[1] === questions[2].answer) {
+            statusLine.textContent = "Correct";
+        }
+        else {
+            statusLine.textContent = "Incorrect";
+            secondsLeft - 5;
+        }
+        runQuestion4();
+    });
+
+    answer3button.addEventListener("click", function () {
+        if (questions[2].choices[2] === questions[2].answer) {
+            statusLine.textContent = "Correct";
+        }
+        else {
+            statusLine.textContent = "Incorrect";
+            secondsLeft - 5;
+        }
+        runQuestion4();
+    });
+    answer4button.addEventListener("click", function () {
+        if (questions[2].choices[3] === questions[2].answer) {
+            statusLine.textContent = "Correct";
+        }
+        else {
+            statusLine.textContent = "Incorrect";
+            secondsLeft - 5;
+        }
+        runQuestion4();
+    });
+};
+
+function runQuestion4() {
+    i = 3;
+    showQuestion();
+    answer1button.addEventListener("click", function () {
+        if (questions[3].choices[0] === questions[3].answer) {
+            statusLine.textContent = "Correct";
+        }
+        else {
+            statusLine.textContent = "Incorrect";
+            secondsLeft - 5;
+        }
+        runQuestion5();
+    });
+
+    answer2button.addEventListener("click", function () {
+        if (questions[3].choices[1] === questions[3].answer) {
+            statusLine.textContent = "Correct";
+        }
+        else {
+            statusLine.textContent = "Incorrect";
+            secondsLeft - 5;
+        }
+        runQuestion5();
+    });
+
+    answer3button.addEventListener("click", function () {
+        if (questions[3].choices[2] === questions[3].answer) {
+            statusLine.textContent = "Correct";
+        }
+        else {
+            statusLine.textContent = "Incorrect";
+            secondsLeft - 5;
+        }
+        runQuestion5();
+    });
+    answer4button.addEventListener("click", function () {
+        if (questions[3].choices[3] === questions[3].answer) {
+            statusLine.textContent = "Correct";
+        }
+        else {
+            statusLine.textContent = "Incorrect";
+            secondsLeft - 5;
+        }
+        runQuestion5();
+    });
+};
+
+function runQuestion5() {
+    i = 4;
+    showQuestion();
+    answer1button.addEventListener("click", function () {
+        if (questions[4].choices[0] === questions[4].answer) {
+            statusLine.textContent = "Correct";
+        }
+        else {
+            statusLine.textContent = "Incorrect";
+            secondsLeft - 5;
+        }
+        goToEnd();
+    });
+
+    answer2button.addEventListener("click", function () {
+        if (questions[4].choices[1] === questions[4].answer) {
+            statusLine.textContent = "Correct";
+        }
+        else {
+            statusLine.textContent = "Incorrect";
+            secondsLeft - 5;
+        }
+        goToEnd();
+    });
+
+    answer3button.addEventListener("click", function () {
+        if (questions[4].choices[2] === questions[4].answer) {
+            statusLine.textContent = "Correct";
+        }
+        else {
+            statusLine.textContent = "Incorrect";
+            secondsLeft - 5;
+        }
+        goToEnd();
+    });
+    answer4button.addEventListener("click", function () {
+        if (questions[4].choices[3] === questions[4].answer) {
+            statusLine.textContent = "Correct";
+        }
+        else {
+            statusLine.textContent = "Incorrect";
+            secondsLeft - 5;
+        }
+        goToEnd();
+    });
 };
 
 runQuestion1();
