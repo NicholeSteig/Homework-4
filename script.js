@@ -4,22 +4,22 @@ var mainContent = document.getElementById("main");
 
 var secondsLeft = 75;
 
-function setTime() {
-    var timerInterval = setInterval(function () {
-        secondsLeft--;
-        timeEl.textContent = "Time left: " + secondsLeft;
+// function setTime() {
+//     var timerInterval = setInterval(function () {
+//         secondsLeft--;
+//         timeEl.textContent = "Time left: " + secondsLeft;
 
 
-        if (secondsLeft === 0) {
-            clearInterval(timerInterval);
-            goToEnd();
-        }
+//         if (secondsLeft === 0) {
+//             clearInterval(timerInterval);
+//             goToEnd();
+//         }
 
 
-    }, 1000);
+//     }, 1000);
 
 
-}
+// }
 
 function goToEnd() {
     mainContent.textContent = "Game Over. Your score is: " + secondsLeft;
@@ -75,5 +75,5 @@ function runQuestions() {
 
 
 
-setTime();
+// setTime();
 runQuestions();
