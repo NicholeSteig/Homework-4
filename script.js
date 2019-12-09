@@ -1,6 +1,3 @@
-var timeEl = document.querySelector(".navbar-text");
-var mainContent = document.getElementById("main");
-
 var cardTitle = document.querySelector("#card-title");
 var cardQuestion = document.querySelector("#question-title");
 var answer1button = document.querySelector("#answer1");
@@ -9,8 +6,7 @@ var answer3button = document.querySelector("#answer3");
 var answer4button = document.querySelector("#answer4");
 var statusLine = document.querySelector("#status-line");
 var gameOver = document.querySelector("#game-over");
-
-var secondsLeft = 75;
+var timer = document.querySelector("#timer");
 
 var questions = [
     {
@@ -40,22 +36,22 @@ var questions = [
     },
 ];
 
-// function setTime() {
-//     var timerInterval = setInterval(function () {
-//         secondsLeft--;
-//         timeEl.textContent = "Time left: " + secondsLeft;
+function setTime() {
+    var timerInterval = setInterval(function () {
+        secondsLeft--;
+        timer.textContent = "Time left: " + secondsLeft;
 
 
-//         if (secondsLeft === 0) {
-//             clearInterval(timerInterval);
-//             goToEnd();
-//         }
+        if (secondsLeft === 0) {
+            clearInterval(timerInterval);
+            goToEnd();
+        }
 
 
-//     }, 1000);
+    }, 1000);
 
 
-// }
+}
 
 function goToEnd() {
     gameOver.textContent = "Game Over. Your score is: " + secondsLeft;
@@ -80,7 +76,7 @@ function runQuestion1() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft -5;
         }
         runQuestion2();
     });
@@ -91,7 +87,7 @@ function runQuestion1() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft - 5;
         }
         runQuestion2();
     });
@@ -102,7 +98,7 @@ function runQuestion1() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft - 5;
         }
         runQuestion2();
     });
@@ -112,7 +108,7 @@ function runQuestion1() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft - 5;
         }
         runQuestion2();
     });
@@ -127,7 +123,7 @@ function runQuestion2() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft - 5;
         }
         runQuestion3();
     });
@@ -138,7 +134,7 @@ function runQuestion2() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft - 5;
         }
         runQuestion3();
     });
@@ -149,7 +145,7 @@ function runQuestion2() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft - 5;
         }
         runQuestion3();
     });
@@ -159,7 +155,7 @@ function runQuestion2() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft - 5;
         }
         runQuestion3();
     });
@@ -174,7 +170,7 @@ function runQuestion3() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft - 5;
         }
         runQuestion4();
     });
@@ -185,7 +181,7 @@ function runQuestion3() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft - 5;
         }
         runQuestion4();
     });
@@ -196,7 +192,7 @@ function runQuestion3() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft - 5;
         }
         runQuestion4();
     });
@@ -206,7 +202,7 @@ function runQuestion3() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft - 5;
         }
         runQuestion4();
     });
@@ -221,7 +217,7 @@ function runQuestion4() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft - 5;
         }
         runQuestion5();
     });
@@ -232,7 +228,7 @@ function runQuestion4() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft - 5;
         }
         runQuestion5();
     });
@@ -243,7 +239,7 @@ function runQuestion4() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft - 5;
         }
         runQuestion5();
     });
@@ -253,7 +249,7 @@ function runQuestion4() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft - 5;
         }
         runQuestion5();
     });
@@ -268,7 +264,7 @@ function runQuestion5() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft - 5;
         }
         goToEnd();
     });
@@ -279,7 +275,7 @@ function runQuestion5() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft - 5;
         }
         goToEnd();
     });
@@ -290,7 +286,7 @@ function runQuestion5() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft - 5;
         }
         goToEnd();
     });
@@ -300,12 +296,14 @@ function runQuestion5() {
         }
         else {
             statusLine.textContent = "Incorrect";
-            secondsLeft - 5;
+            secondsLeft = secondsLeft - 5;
         }
         goToEnd();
     });
 };
 
+var secondsLeft = 75;
+
+setTime();
 runQuestion1();
-// setTime();
 
